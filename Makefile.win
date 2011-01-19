@@ -1,0 +1,33 @@
+# Project: projS
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = projS_private.res
+OBJ  = projS.o $(RES)
+LINKOBJ  = projS.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lmingw32 -lSDLmain -lSDL -lSDL_ttf -lSDL_mixer  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = projS.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS) -Dmain=SDL_main  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before projS.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "projS.exe" $(LIBS)
+
+projS.o: projS.cpp
+	$(CPP) -c projS.cpp -o projS.o $(CXXFLAGS)
+
+projS_private.res: projS_private.rc 
+	$(WINDRES) -i projS_private.rc --input-format=rc -o projS_private.res -O coff 
