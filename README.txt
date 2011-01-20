@@ -1,4 +1,4 @@
-Pacman for Windows created by jiva for the course CSCI x070 at the University of Georgia.
+A C++ implementation of Pacman I wrote when I took game programming (CSCI x070). It runs on Windows.
 
 How to play:
 -Use the directional keys L,R,U,D
